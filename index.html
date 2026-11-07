@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal website with Home, About, Solutions, and Reach Out sections.">
+  <meta name="description" content="Personal website with Home, About, Solutions, Projects, and Reach Out sections.">
   <title>Sagar Mahewar | Personal Site</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1020'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='34' fill='%236aa5ff' font-family='Arial'%3EYN%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/styles.css?v=45">
@@ -28,6 +28,7 @@
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#solutions" class="nav-link">Solutions</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#reachout" class="nav-link">Reach Out</a></li>
       </ul>
     </nav>
@@ -167,6 +168,90 @@
       </div>
     </section>
 
+    <section id="projects" class="section tab-panel" hidden>
+      <div class="container section-content">
+        <h2>Projects</h2>
+        <p class="projects-intro">Things I've built across enterprise AI, speech, and platform engineering with a focus on production quality and long-term maintainability.</p>
+        <div class="projects-editorial">
+          <article class="project-entry">
+            <header class="project-heading">
+              <div class="project-title-wrap">
+                <span class="project-identity project-identity-rag" aria-hidden="true">RAG</span>
+                <h3>Enterprise-RAG-Assistant</h3>
+                <p class="project-subtitle">Enterprise Retrieval-Augmented Generation Assistant</p>
+              </div>
+              <span class="project-status status-active">Active</span>
+            </header>
+            <p class="project-description">A GitHub-deployed RAG assistant built for enterprise knowledge access. It combines grounded retrieval with LLM reasoning so teams can get context-aware answers from trusted sources while keeping responses auditable and practical for day-to-day engineering workflows.</p>
+            <ul class="project-tags" aria-label="Enterprise-RAG-Assistant technology stack">
+              <li>Python</li>
+              <li>RAG</li>
+              <li>LLMs</li>
+              <li>Enterprise AI</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://sagarmahewar.github.io/Enterprise-RAG-Assistant/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/sagarmahewar/Enterprise-RAG-Assistant" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
+          </article>
+
+          <article class="project-entry">
+            <header class="project-heading">
+              <div class="project-title-wrap">
+                <span class="project-identity project-identity-speech" aria-hidden="true">SP</span>
+                <h3>Speech Intelligence Platform</h3>
+                <p class="project-subtitle">Voice AI Product Platform</p>
+              </div>
+              <span class="project-status status-future">Future</span>
+            </header>
+            <p class="project-description">A scalable speech platform integrating recognition, transcription, and conversational workflows. The architecture was designed for reliability and extensibility across enterprise voice experiences and production delivery pipelines.</p>
+            <ul class="project-tags" aria-label="Speech Intelligence Platform technology stack">
+              <li>Speech AI</li>
+              <li>NLP</li>
+              <li>C++</li>
+              <li>Azure</li>
+            </ul>
+          </article>
+
+          <article class="project-entry">
+            <header class="project-heading">
+              <div class="project-title-wrap">
+                <span class="project-identity project-identity-ai" aria-hidden="true">AI</span>
+                <h3>AI Assistant Workbench</h3>
+                <p class="project-subtitle">LLM Workflow &amp; Prompt Orchestration Framework</p>
+              </div>
+              <span class="project-status status-experimental">Experimental</span>
+            </header>
+            <p class="project-description">An assistant framework for orchestrating prompt-driven tasks and automation paths. It focuses on accelerating support and engineering operations by combining structured workflows with practical agentic AI patterns.</p>
+            <ul class="project-tags" aria-label="AI Assistant Workbench technology stack">
+              <li>TypeScript</li>
+              <li>Agentic AI</li>
+              <li>Prompting</li>
+              <li>Automation</li>
+            </ul>
+          </article>
+
+          <article class="project-entry">
+            <header class="project-heading">
+              <div class="project-title-wrap">
+                <span class="project-identity project-identity-sdk" aria-hidden="true">SDK</span>
+                <h3>Cross-Platform SDK Suite</h3>
+                <p class="project-subtitle">Desktop &amp; Mobile Platform SDKs</p>
+              </div>
+              <span class="project-status status-future">Future</span>
+            </header>
+            <p class="project-description">A reusable SDK and platform component suite for desktop and mobile applications. It simplifies integration complexity while improving consistency, developer productivity, and maintainable architecture across product surfaces.</p>
+            <ul class="project-tags" aria-label="Cross-Platform SDK Suite technology stack">
+              <li>C++</li>
+              <li>.NET</li>
+              <li>iOS</li>
+              <li>Android</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="reachout" class="section tab-panel" hidden>
       <div class="container section-content">
         <h2>Reach Out</h2>
@@ -253,6 +338,7 @@
           <a href="#home" class="nav-link bottom-dot" aria-label="Home"><span class="sr-only">Home</span></a>
           <a href="#about" class="nav-link bottom-dot" aria-label="About"><span class="sr-only">About</span></a>
           <a href="#solutions" class="nav-link bottom-dot" aria-label="Solutions"><span class="sr-only">Solutions</span></a>
+          <a href="#projects" class="nav-link bottom-dot" aria-label="Projects"><span class="sr-only">Projects</span></a>
           <a href="#reachout" class="nav-link bottom-dot" aria-label="Reach Out"><span class="sr-only">Reach Out</span></a>
         </div>
         <button id="bottom-next" class="bottom-nav-arrow" type="button" aria-label="Next section">&#8250;</button>
