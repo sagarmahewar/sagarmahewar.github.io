@@ -9,6 +9,7 @@ const contactStatus = document.querySelector("#contact-status");
 const bottomPrev = document.querySelector("#bottom-prev");
 const bottomNext = document.querySelector("#bottom-next");
 const solutionsSection = document.querySelector("#solutions");
+const reachoutSection = document.querySelector("#reachout");
 const sectionIds = Array.from(sections).map((section) => section.id);
 
 if (yearNode) {
@@ -45,6 +46,12 @@ function setActiveSection(id) {
   } else if (solutionsSection) {
     solutionsSection.classList.remove("solutions-animate");
   }
+
+  if (targetId === "reachout") {
+    triggerReachoutAnimation();
+  } else if (reachoutSection) {
+    reachoutSection.classList.remove("reachout-animate");
+  }
 }
 
 function triggerSolutionsAnimation() {
@@ -56,6 +63,19 @@ function triggerSolutionsAnimation() {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       solutionsSection.classList.add("solutions-animate");
+    });
+  });
+}
+
+function triggerReachoutAnimation() {
+  if (!reachoutSection) {
+    return;
+  }
+
+  reachoutSection.classList.remove("reachout-animate");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      reachoutSection.classList.add("reachout-animate");
     });
   });
 }
