@@ -8,6 +8,7 @@ const contactForm = document.querySelector("#contact-form");
 const contactStatus = document.querySelector("#contact-status");
 const bottomPrev = document.querySelector("#bottom-prev");
 const bottomNext = document.querySelector("#bottom-next");
+const solutionsSection = document.querySelector("#solutions");
 const sectionIds = Array.from(sections).map((section) => section.id);
 
 if (yearNode) {
@@ -38,6 +39,25 @@ function setActiveSection(id) {
 
   setActiveLink(targetId);
   updateBottomNavigator(targetId);
+
+  if (targetId === "solutions") {
+    triggerSolutionsAnimation();
+  } else if (solutionsSection) {
+    solutionsSection.classList.remove("solutions-animate");
+  }
+}
+
+function triggerSolutionsAnimation() {
+  if (!solutionsSection) {
+    return;
+  }
+
+  solutionsSection.classList.remove("solutions-animate");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      solutionsSection.classList.add("solutions-animate");
+    });
+  });
 }
 
 const initialHash = window.location.hash.replace("#", "");
