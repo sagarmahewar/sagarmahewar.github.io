@@ -244,7 +244,7 @@ if (menuToggle && navMenu) {
 }
 
 if (contactForm) {
-  contactForm.addEventListener("submit", async (event) => {
+  contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(contactForm);
     const name = String(formData.get("name") || "").trim();
@@ -252,69 +252,33 @@ if (contactForm) {
     const subject = String(formData.get("subject") || "").trim() || "Website inquiry";
     const message = String(formData.get("message") || "").trim();
     const submitButton = contactForm.querySelector("button[type='submit']");
+    const recipient = "sagar.mahewar@gmail.com";
+    const emailBody = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      message
+    ].join("\n");
+    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
     if (contactStatus) {
-      contactStatus.textContent = "Sending...";
+      contactStatus.textContent = "Opening your email app...";
       contactStatus.className = "contact-status";
     }
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
+      submitButton.textContent = "Opening...";
     }
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sagar.mahewar@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          subject,
-          message,
-          _captcha: "false"
-        })
-      });
-      const rawResult = await response.text();
-      let result = null;
-      try {
-        result = JSON.parse(rawResult);
-      } catch (parseError) {
-        result = null;
-      }
-
-      if (!response.ok) {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : `Request failed with status ${response.status}`
-        );
-      }
-
-      if (result && (result.success === "true" || result.success === true)) {
-        contactForm.reset();
-        if (contactStatus) {
-          contactStatus.textContent = "Message sent successfully.";
-          contactStatus.className = "contact-status success";
-        }
-      } else {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : "Form service did not confirm delivery"
-        );
+      window.location.href = mailtoUrl;
+      if (contactStatus) {
+        contactStatus.textContent = "Email draft opened. Please review and send.";
+        contactStatus.className = "contact-status success";
       }
     } catch (error) {
       if (contactStatus) {
-        const message = error instanceof Error ? error.message : "";
-        if (message.toLowerCase().includes("needs activation")) {
-          contactStatus.textContent =
-            "Activation needed: check sagar.mahewar@gmail.com inbox and click the Activate Form link once.";
-        } else {
-          contactStatus.textContent = "Unable to send right now. Please try again.";
-        }
+        contactStatus.textContent = "Unable to open your email app. Please use the email link above.";
         contactStatus.className = "contact-status error";
       }
     } finally {

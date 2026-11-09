@@ -598,12 +598,12 @@ a:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid rgba(86, 214, 245, 0.18);
+  border: 1px solid rgba(86, 214, 245, 0.1);
   background:
-    linear-gradient(rgba(86, 214, 245, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(86, 214, 245, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(86, 214, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(86, 214, 245, 0.07) 1px, transparent 1px);
   background-size: 58px 58px;
-  opacity: 0.22;
+  opacity: 0.16;
   animation: homeAmbientDrift 14s ease-in-out infinite;
 }
 
@@ -635,6 +635,33 @@ a:focus-visible {
   animation: homeAmbientDrift 15s ease-in-out infinite;
 }
 
+#home .section-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(
+      130px circle at var(--cursor-x, 50%) var(--cursor-y, 32%),
+      rgba(86, 214, 245, 0.13) 0%,
+      rgba(86, 214, 245, 0.06) 42%,
+      rgba(86, 214, 245, 0) 76%
+    ),
+    radial-gradient(
+      78px circle at var(--cursor-x, 50%) var(--cursor-y, 32%),
+      rgba(167, 139, 250, 0.08) 0%,
+      rgba(167, 139, 250, 0) 74%
+    );
+  transition: opacity 0.2s ease;
+}
+
+#home.cursor-active .section-content::after {
+  opacity: 1;
+}
+
 .section-content {
   max-width: 74ch;
 }
@@ -654,11 +681,11 @@ a:focus-visible {
   line-height: 1.12;
   font-weight: 800;
   letter-spacing: 0.01em;
-  background: linear-gradient(96deg, #f2e2b6 0%, #d6b879 48%, #b4904b 100%);
+  background: linear-gradient(96deg, #ddb77a 0%, #b47b3a 48%, #7a501c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 8px 20px rgba(214, 184, 121, 0.16);
+  text-shadow: 0 8px 20px rgba(122, 80, 28, 0.22);
 }
 
 h1,
@@ -746,7 +773,7 @@ h3 {
 
 #home .hero-name {
   margin: 0.22rem 0 0.88rem;
-  text-shadow: 0 12px 24px rgba(214, 184, 121, 0.2);
+  text-shadow: 0 12px 24px rgba(122, 80, 28, 0.28);
 }
 
 #home h1 {
