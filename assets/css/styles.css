@@ -265,6 +265,60 @@ main {
   }
 }
 
+@keyframes aboutHeadlineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes aboutGlassLift {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.99);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes aboutSignalReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutPrismSweep {
+  0% {
+    opacity: 0.35;
+    transform: translateX(-14px) scaleX(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(10px) scaleX(1.02);
+  }
+  100% {
+    opacity: 0.45;
+    transform: translateX(0) scaleX(1);
+  }
+}
+
 @keyframes projectsTitleReveal {
   0% {
     opacity: 0;
@@ -729,39 +783,22 @@ h3 {
   justify-self: end;
   width: min(100%, 380px);
   aspect-ratio: 4 / 5;
-  border-radius: 1rem;
+  border-radius: 1.1rem;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(86, 214, 245, 0.3);
-  background:
-    radial-gradient(280px 200px at 76% 18%, rgba(86, 214, 245, 0.2) 0%, rgba(86, 214, 245, 0) 72%),
-    radial-gradient(260px 180px at 22% 80%, rgba(167, 139, 250, 0.18) 0%, rgba(167, 139, 250, 0) 72%),
-    rgba(10, 15, 27, 0.9);
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.4);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   opacity: 0;
   transform: translateX(24px) scale(0.98);
 }
 
 .home-portrait-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    linear-gradient(rgba(86, 214, 245, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(86, 214, 245, 0.14) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.2;
-  pointer-events: none;
+  content: none;
 }
 
 .home-portrait-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(167, 139, 250, 0.24);
-  pointer-events: none;
+  content: none;
 }
 
 .home-portrait {
@@ -770,6 +807,7 @@ h3 {
   object-fit: cover;
   object-position: center 12%;
   display: block;
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.34));
 }
 
 #home.home-animate .eyebrow {
@@ -829,6 +867,20 @@ h3 {
 .about-shell {
   display: grid;
   gap: 1.4rem;
+  position: relative;
+}
+
+.about-shell::before {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(86, 214, 245, 0.55), rgba(167, 139, 250, 0.5), rgba(86, 214, 245, 0.55));
+  display: none;
+  pointer-events: none;
 }
 
 .about-hero {
@@ -837,7 +889,7 @@ h3 {
   gap: 1rem;
   align-items: center;
   padding: 0.2rem 0 1.35rem;
-  border-bottom: 1px solid rgba(38, 53, 74, 0.9);
+  border-bottom: 0;
 }
 
 .about-hero-copy {
@@ -957,6 +1009,14 @@ h3 {
 .about-block {
   padding-top: 1.1rem;
   border-top: 1px solid rgba(38, 53, 74, 0.9);
+  opacity: 0;
+  transform: translateY(22px) scale(0.99);
+  filter: blur(4px);
+}
+
+.about-block:first-of-type {
+  border-top: 0;
+  padding-top: 0.5rem;
 }
 
 .about-block-header {
@@ -990,12 +1050,18 @@ h3 {
   border-radius: 0.58rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #eaf6ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-heading-icon svg {
   width: 1.08rem;
   height: 1.08rem;
   fill: currentColor;
+}
+
+.about-block:hover .about-heading-icon {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 10px 22px rgba(86, 214, 245, 0.2);
 }
 
 .tone-engineering {
@@ -1161,6 +1227,67 @@ h3 {
   margin-top: 0.24rem;
   color: #9ad7ff;
   font-size: 0.82rem;
+}
+
+#about .about-eyebrow,
+#about .about-headline,
+#about .about-positioning,
+#about .about-signal-row p {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+#about.about-animate .about-shell::before {
+  opacity: 1;
+  animation: aboutPrismSweep 2.6s ease-in-out 0.15s infinite;
+}
+
+#about.about-animate .about-eyebrow {
+  animation: aboutSignalReveal 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.06s forwards;
+}
+
+#about.about-animate .about-headline {
+  animation: aboutHeadlineReveal 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) 0.14s forwards;
+}
+
+#about.about-animate .about-positioning {
+  animation: aboutSignalReveal 0.54s cubic-bezier(0.2, 0.7, 0.2, 1) 0.24s forwards;
+}
+
+#about.about-animate .about-signal-row p {
+  animation: aboutSignalReveal 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+#about.about-animate .about-signal-row p:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+#about.about-animate .about-signal-row p:nth-child(2) {
+  animation-delay: 0.38s;
+}
+
+#about.about-animate .about-signal-row p:nth-child(3) {
+  animation-delay: 0.46s;
+}
+
+#about.about-animate .about-block {
+  animation: aboutGlassLift 0.68s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+#about.about-animate .about-block:nth-of-type(1) {
+  animation-delay: 0.34s;
+}
+
+#about.about-animate .about-block:nth-of-type(2) {
+  animation-delay: 0.45s;
+}
+
+#about.about-animate .about-block:nth-of-type(3) {
+  animation-delay: 0.56s;
+}
+
+#about.about-animate .about-block:nth-of-type(4) {
+  animation-delay: 0.67s;
 }
 
 .card-grid {
@@ -2019,6 +2146,12 @@ textarea:focus-visible,
   #reachout .contact-block,
   #reachout .contact-form,
   #reachout .contact-list li,
+  #about .about-shell::before,
+  #about .about-eyebrow,
+  #about .about-headline,
+  #about .about-positioning,
+  #about .about-signal-row p,
+  #about .about-block,
   #home .eyebrow,
   #home .hero-name,
   #home h1,

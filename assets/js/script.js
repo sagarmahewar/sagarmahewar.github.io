@@ -9,6 +9,7 @@ const contactStatus = document.querySelector("#contact-status");
 const bottomPrev = document.querySelector("#bottom-prev");
 const bottomNext = document.querySelector("#bottom-next");
 const homeSection = document.querySelector("#home");
+const aboutSection = document.querySelector("#about");
 const solutionsSection = document.querySelector("#solutions");
 const projectsSection = document.querySelector("#projects");
 const reachoutSection = document.querySelector("#reachout");
@@ -47,6 +48,12 @@ function setActiveSection(id) {
     triggerHomeAnimation();
   } else if (homeSection) {
     homeSection.classList.remove("home-animate");
+  }
+
+  if (targetId === "about") {
+    triggerAboutAnimation();
+  } else if (aboutSection) {
+    aboutSection.classList.remove("about-animate");
   }
 
   if (targetId === "solutions") {
@@ -90,6 +97,19 @@ function triggerHomeAnimation() {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       homeSection.classList.add("home-animate");
+    });
+  });
+}
+
+function triggerAboutAnimation() {
+  if (!aboutSection) {
+    return;
+  }
+
+  aboutSection.classList.remove("about-animate");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      aboutSection.classList.add("about-animate");
     });
   });
 }
