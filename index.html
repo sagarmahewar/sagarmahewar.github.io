@@ -6,7 +6,7 @@
   <meta name="description" content="Personal website with Home, About, Solutions, Projects, and Reach Out sections.">
   <title>Sagar Mahewar | Personal Site</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1020'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='34' fill='%236aa5ff' font-family='Arial'%3EYN%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/styles.css?v=54">
+  <link rel="stylesheet" href="assets/css/styles.css?v=64">
 </head>
 <body>
   <a class="skip-link" href="#home">Skip to content</a>
@@ -37,16 +37,23 @@
   <main>
     <section id="home" class="section home tab-panel">
       <div class="container section-content">
-        <p class="eyebrow">Hello, I'm</p>
-        <p class="hero-name">Sagar Mahewar</p>
-        <h1>Engineering Intelligent Experiences Across AI, Speech, Mobile &amp; Desktop</h1>
-        <p class="lead">
-          Senior Software Engineer and Technical Lead specializing in AI-powered products,
-          Speech &amp; Conversational AI, Desktop and Mobile platforms, and SDK architecture. I build
-          production-ready software that brings together Generative AI, speech technologies,
-          cloud services, and intuitive mobile &amp; desktop experiences.
-        </p>
-        <a class="btn" href="#solutions">Explore My Work</a>
+        <div class="home-hero">
+          <div class="home-copy">
+            <p class="eyebrow">Hello, I'm</p>
+            <p class="hero-name">Sagar Mahewar</p>
+            <h1>Engineering Intelligent Experiences Across AI, Speech, Mobile &amp; Desktop</h1>
+            <p class="lead">
+              Senior Software Engineer and Technical Lead specializing in AI-powered products,
+              Speech &amp; Conversational AI, Desktop and Mobile platforms, and SDK architecture. I build
+              production-ready software that brings together Generative AI, speech technologies,
+              cloud services, and intuitive mobile &amp; desktop experiences.
+            </p>
+            <a class="btn home-cta" href="#solutions">Explore My Work</a>
+          </div>
+          <figure class="home-portrait-wrap">
+            <img class="home-portrait" src="assets/images/profile.jpeg?v=4" alt="Sagar Mahewar profile portrait">
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -58,24 +65,12 @@
               <p class="about-eyebrow">About · Engineering Profile</p>
               <h2 class="about-headline">Engineering Intelligent Solutions. Building Technology That Scales.</h2>
               <p class="about-positioning">Senior Software Engineer | Technical Lead | AI &amp; Software Engineering</p>
-              <p class="about-lead">
-                A technology professional with 17+ years of experience designing, developing, and delivering enterprise-grade software solutions across desktop, mobile, cloud, and AI-powered platforms.
-              </p>
-              <p class="about-support">
-                Strong engineering depth across C++, .NET, iOS, Android, speech recognition, and cloud technologies, with hands-on experience in software architecture, cross-platform engineering, system integration, and technical leadership.
-              </p>
-              <p class="about-support">
-                Currently contributing to Microsoft&apos;s Dragon Copilot ecosystem through advanced speech-driven healthcare solutions and mobile SDK technologies, with a focus on scalable, reliable, and intelligent software delivery.
-              </p>
               <div class="about-signal-row" aria-label="Professional highlights">
                 <p><span>17+ Years</span>Engineering Depth</p>
                 <p><span>C++, .NET, iOS, Android, AI, Speech, Cloud</span>Technology Breadth</p>
                 <p><span>Enterprise SDKs &amp; Architecture</span>Professional Impact</p>
               </div>
             </div>
-            <figure class="about-portrait-wrap">
-              <img class="about-portrait" src="assets/images/profile.jpeg?v=4" alt="Sagar Mahewar profile portrait">
-            </figure>
           </section>
 
           <section class="about-block" aria-labelledby="about-expertise-title">
@@ -221,7 +216,7 @@
 
     <section id="projects" class="section tab-panel" hidden>
       <div class="container section-content">
-        <h2>Projects</h2>
+        <h2 class="projects-title">Projects</h2>
         <p class="projects-intro">Things I've built across enterprise AI, speech, and platform engineering with a focus on production quality and long-term maintainability.</p>
         <div class="projects-editorial">
           <article class="project-entry">
@@ -308,11 +303,6 @@
         <div class="reachout-intro">
           <h2 class="reachout-title">Reach Out</h2>
           <p class="lead small reachout-lead">Interested in AI, Speech AI, Generative AI, Desktop and Mobile platforms, or developer SDKs? Let’s connect and exchange ideas about building intelligent software that solves real-world problems.</p>
-          <div class="reachout-meta" aria-label="Collaboration notes">
-            <span>Open for enterprise engineering collaborations</span>
-            <span>Preferred focus: AI, Speech, Desktop &amp; Mobile SDKs</span>
-            <span>Response window: typically within 24–48 hours</span>
-          </div>
         </div>
 
         <div class="reachout-grid">
@@ -404,6 +394,6 @@
     </div>
   </div>
 
-  <script src="assets/js/script.js?v=8"></script>
+  <script src="assets/js/script.js?v=10"></script>
 </body>
 </html>

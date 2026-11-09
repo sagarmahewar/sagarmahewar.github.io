@@ -8,7 +8,9 @@ const contactForm = document.querySelector("#contact-form");
 const contactStatus = document.querySelector("#contact-status");
 const bottomPrev = document.querySelector("#bottom-prev");
 const bottomNext = document.querySelector("#bottom-next");
+const homeSection = document.querySelector("#home");
 const solutionsSection = document.querySelector("#solutions");
+const projectsSection = document.querySelector("#projects");
 const reachoutSection = document.querySelector("#reachout");
 const sectionIds = Array.from(sections).map((section) => section.id);
 
@@ -41,10 +43,22 @@ function setActiveSection(id) {
   setActiveLink(targetId);
   updateBottomNavigator(targetId);
 
+  if (targetId === "home") {
+    triggerHomeAnimation();
+  } else if (homeSection) {
+    homeSection.classList.remove("home-animate");
+  }
+
   if (targetId === "solutions") {
     triggerSolutionsAnimation();
   } else if (solutionsSection) {
     solutionsSection.classList.remove("solutions-animate");
+  }
+
+  if (targetId === "projects") {
+    triggerProjectsAnimation();
+  } else if (projectsSection) {
+    projectsSection.classList.remove("projects-animate");
   }
 
   if (targetId === "reachout") {
@@ -63,6 +77,32 @@ function triggerSolutionsAnimation() {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       solutionsSection.classList.add("solutions-animate");
+    });
+  });
+}
+
+function triggerHomeAnimation() {
+  if (!homeSection) {
+    return;
+  }
+
+  homeSection.classList.remove("home-animate");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      homeSection.classList.add("home-animate");
+    });
+  });
+}
+
+function triggerProjectsAnimation() {
+  if (!projectsSection) {
+    return;
+  }
+
+  projectsSection.classList.remove("projects-animate");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      projectsSection.classList.add("projects-animate");
     });
   });
 }
